@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'semantic-ui-react';
 
 import './App.css';
 
@@ -44,7 +45,7 @@ const  App = () => {
         <h2>How much does a Name weigh?</h2>
         <p>Play to See</p>
       </div>
-      <button onClick={subScore}>Click to Play</button>
+      <Button color="purple" onClick={subScore}>Click to Play</Button>
       <div>
         <span>{total}</span>
       </div>
