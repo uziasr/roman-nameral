@@ -1,24 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
+const obj = {
+  X: 10,
+  M: 1000,
+  I: 1,
+  C: 100,
+  D: 500,
+  L: 50,
+  V: 5,
+  Y: 5000,
+  Q: 10,
+  R: 1,
+  S: 5
+}
+const  App = () => {
+  const [total, setTotal] = React.useState(0);
+
+  const subScore = () => {
+
+    let name = window.prompt("Enter a name to see its weight: ") || "";
+    if (name) {
+      setTotal(
+        name.split('').reduce((next, letter) => {
+          const currentWeight = obj[letter.toUpperCase()];
+          next += currentWeight ? currentWeight : 0;
+          return next;
+        }, 0)
+      )
+    }
+    
+    console.log(total)
+
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Roman Nameral II</p>
       </header>
+      <div>
+        <h2>How much does a Name weigh?</h2>
+        <p>Play to See</p>
+      </div>
+      <button onClick={subScore}>Click to Play</button>
+      <div>
+        <span>{total}</span>
+      </div>
+      
     </div>
   );
 }
